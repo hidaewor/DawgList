@@ -4,21 +4,27 @@ import java.sql.*;
 
 public class PostItemAction {
 	
-	private String id, sellerName, category, price, itemCondition, description;
+	private String sellerName, sellerEmail, itemName, category, itemCondition, description;
+	private int sellerID, price, itemID;
 	
 	public String execute(){
 		String ret = null;
 		try{
+			itemID = (int)(100000 + Math.random() * 900000);
+			
 			String database = "jdbc:mysql://localhost:3306/dawglist";
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection(database, "root", "");
-			PreparedStatement ps = con.prepareStatement("insert into itemdb values(?,?,?,?,?,?)");
-			ps.setString(1, id);
-			ps.setString(2, sellerName);
-			ps.setString(3, category);
-			ps.setString(4, price);
-			ps.setString(5, itemCondition);
-			ps.setString(6, description);
+			PreparedStatement ps = con.prepareStatement("insert into itemdb values(?,?,?,?,?,?,?,?,?)");
+			ps.setInt(1, itemID);
+			ps.setInt(2, sellerID);
+			ps.setString(3, sellerName);
+			ps.setString(4, sellerEmail);
+			ps.setString(5, itemName);
+			ps.setString(6, category);
+			ps.setInt(7, price);
+			ps.setString(8, itemCondition);
+			ps.setString(9, description);
 			ps.executeUpdate();
 			ret = "success";
 			
@@ -30,11 +36,18 @@ public class PostItemAction {
 		return ret;
 	}
 	
-	public String getId(){
-		return id;
+	
+	public int getItemID(){
+		return itemID;
 	}
-	public void setId(String id){
-		this.id = id;
+	public void setItemID(int itemID){
+		this.itemID = itemID;
+	}
+	public int getSellerID(){
+		return sellerID;
+	}
+	public void setSellerID(int sellerID){
+		this.sellerID = sellerID;
 	}
 
 	public String getSellerName(){
@@ -42,6 +55,20 @@ public class PostItemAction {
 	}
 	public void setSellerName(String sellerName){
 		this.sellerName = sellerName;
+	}
+	
+	public String getSellerEmail(){
+		return sellerEmail;
+	}
+	public void setSellerEmail(String sellerEmail){
+		this.sellerEmail = sellerEmail;
+	}
+	
+	public String getItemName(){
+		return itemName;
+	}
+	public void setItemName(String itemName){
+		this.itemName = itemName;
 	}
 
 	public String getCategory(){
@@ -51,10 +78,10 @@ public class PostItemAction {
 		this.category = category;
 	}
 	
-	public String getPrice(){
+	public int getPrice(){
 		return price;
 	}
-	public void setPrice(String price){
+	public void setPrice(int price){
 		this.price = price;
 	}
 	

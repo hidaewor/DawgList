@@ -15,7 +15,37 @@
       <action name="selectItem" 
             class="edu.uga.cs4370.dawglist.SelectItemAction" 
             method="execute">
-            <result name="success">index.jsp</result>
+            <result name="success">home.jsp</result>
+      </action>
+      
+       <action name="login" 
+            class="edu.uga.cs4370.dawglist.LoginAction" 
+            method="execute">
+            <result name="success">home.jsp</result>
+      </action>
+      
+      <action name="register" 
+            class="edu.uga.cs4370.dawglist.RegisterAction" 
+            method="execute">
+            <result name="success">registrationSuccess.jsp</result>
+      </action>
+      
+      <action name="goToRegister" 
+            class="edu.uga.cs4370.dawglist.PageForwarding" 
+            method="execute">
+            <result name="success">registerPage.jsp</result>
+      </action>
+      
+      <action name="getDescription" 
+            class="edu.uga.cs4370.dawglist.ItemClickedAction" 
+            method="execute">
+            <result name="success">itemInfo.jsp</result>
+      </action>
+      
+      <action name="purchase" 
+            class="edu.uga.cs4370.dawglist.PurchaseItemAction" 
+            method="execute">
+            <result name="success">purchaseSuccess.jsp</result>
       </action>
    </package>
 </struts>

@@ -5,19 +5,26 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Hello World</title>
+<title>Post A Listing</title>
 </head>
 <body>
-   <h1>Hello World From Struts2</h1>
+   <h1>Post A Listing</h1>
    <form action="postItem">
-      <label for="name">Please enter item info</label><br/>
-      <input type="text" name="id"/>
-      <input type="text" name="sellerName"/>
-      <input type="text" name="category"/>
-      <input type="text" name="price"/>
-      <input type="text" name="itemCondition"/>
-      <input type="text" name="description"/>
-      <input type="submit" value="Post"/>
+      <label for="sellerName">Your Name</label>
+      <input type="text" name="sellerName"/><br/>
+      <label for="sellerEmail">Your Email</label>
+      <input type="text" name="sellerEmail"/><br/>
+      <label for="itemName">Item Name</label>
+      <input type="text" name="itemName"/><br/>
+      <label for="category">Item Category</label>
+      <input type="text" name="category"/><br/>
+      <label for="price">Item Price</label>
+      <input type="text" name="price"/><br/>
+      <label for="itemCondition">Item Condition</label>
+      <input type="text" name="itemCondition"/><br/>
+      <label for="description">Item Description</label>
+      <input type="text" name="description"/><br/>
+      <input type="submit" value="Submit"/><br/>
    </form>
 </body>
 </html>

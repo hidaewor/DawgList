@@ -22,12 +22,15 @@ public class SelectItemAction {
 			ResultSet rs =  ps.executeQuery();
 			while(rs.next()){
 				TableItem item = new TableItem();
-				item.setId(rs.getString(1));
-				item.setSellerName(rs.getString(2));
-				item.setCategory(rs.getString(3));
-				item.setPrice(rs.getString(4));
-				item.setItemCondition(rs.getString(5));
-				item.setDescription(rs.getString(6));
+				item.setItemID(rs.getInt(1));
+				item.setSellerID(rs.getInt(2));
+				item.setSellerName(rs.getString(3));
+				item.setSellerEmail(rs.getString(4));
+				item.setItemName(rs.getString(5));
+				item.setCategory(rs.getString(6));
+				item.setPrice(rs.getInt(7));
+				item.setItemCondition(rs.getString(8));
+				item.setDescription(rs.getString(9));
 				list.add(item);
 			}
 			ret = "success";
