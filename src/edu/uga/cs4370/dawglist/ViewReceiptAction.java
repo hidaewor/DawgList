@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class ViewReceiptAction {
 
-	ArrayList<TableItem> receiptList = new ArrayList<TableItem>();
+	ArrayList<ReceiptTableItem> receiptList = new ArrayList<ReceiptTableItem>();
 
 	public String execute(){
 		String ret = null;
@@ -21,16 +21,12 @@ public class ViewReceiptAction {
 			ps.setInt(1, CurrentUserInfo.currentUserID);
 			ResultSet rs =  ps.executeQuery();
 			while(rs.next()){
-				TableItem item = new TableItem();
-				item.setItemID(rs.getInt(1));
-				item.setSellerID(rs.getInt(2));
-				item.setSellerName(rs.getString(3));
-				item.setSellerEmail(rs.getString(4));
-				item.setItemName(rs.getString(5));
-				item.setCategory(rs.getString(6));
-				item.setPrice(rs.getInt(7));
-				item.setItemCondition(rs.getString(8));
-				item.setDescription(rs.getString(9));
+				ReceiptTableItem item = new ReceiptTableItem();
+				item.setOrderID(rs.getInt(1));
+				item.setOrderTime(rs.getString(2));
+				item.setItemID(rs.getInt(3));
+				item.setCustomerID(rs.getInt(4));
+				item.setSellerID(rs.getInt(5));
 				receiptList.add(item);
 			}
 			ret = "success";
@@ -44,11 +40,11 @@ public class ViewReceiptAction {
 		return ret;
 	}
 	
-	public ArrayList<TableItem> getReceiptList(){
+	public ArrayList<ReceiptTableItem> getReceiptList(){
 		return receiptList;
 	}
 	
-	public void setList(ArrayList<TableItem> receiptList){
+	public void setList(ArrayList<ReceiptTableItem> receiptList){
 		this.receiptList = receiptList;
 	}
 }

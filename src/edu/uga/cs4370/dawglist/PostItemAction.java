@@ -11,7 +11,7 @@ public class PostItemAction {
 		String ret = null;
 		try{
 			itemID = (int)(100000 + Math.random() * 900000);
-			
+			sellerID = CurrentUserInfo.currentUserID;
 			String database = "jdbc:mysql://localhost:3306/dawglist";
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection(database, "root", "");

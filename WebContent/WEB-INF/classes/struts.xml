@@ -47,5 +47,11 @@
             method="execute">
             <result name="success">purchaseSuccess.jsp</result>
       </action>
+      
+      <action name="viewReceipts" 
+            class="edu.uga.cs4370.dawglist.ViewReceiptAction" 
+            method="execute">
+            <result name="success">receiptsPage.jsp</result>
+      </action>
    </package>
 </struts>
