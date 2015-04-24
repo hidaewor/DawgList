@@ -19,9 +19,9 @@
 <s:iterator value = "receiptList">
 <tr>
 <td>Order ID: <s:property value = "orderID"/></td>
-<td>$<s:property value = "orderTime"/></td>
+<td><s:property value = "orderTime"/></td>
 <td>Seller: <s:property value = "itemID"/></td>
-<td>$<s:property value = "customerID"/></td>
+<td><s:property value = "customerID"/></td>
 <td>Seller: <s:property value = "sellerID"/></td>
 </tr>
 </s:iterator>
