@@ -16,7 +16,7 @@
 	<div class="container">
 		<div class="main"> 
 		
-			<h3>You have successfully registered!</h3>
+			<h3>You have entered an invalid username or password!</h3>
 			
 			<!-- what is this lol
 				<s:url id="url" action="selectItem">

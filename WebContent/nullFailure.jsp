@@ -16,17 +16,7 @@
 	<div class="container">
 		<div class="main"> 
 		
-			<h3>You have successfully registered!</h3>
-			
-			<!-- what is this lol
-				<s:url id="url" action="selectItem">
-				</s:url>
-				<!--<s:a href="%{url}" >To Homepage</s:a>
-				
-				<a href = "index.jsp" class="btn">Back To Login Page</a>
-			-->
-			
-			<p align="center"><a href="index.jsp" class="btn">Back To Login Page</a></p>
+			<h3>Invalid input!</h3>
 
 		</div>
 	</div>
@@ -34,4 +24,3 @@
 <!-- End Page Content -->	  
 </body>
 </html>
-

@@ -12,17 +12,27 @@ public class RegisterAction {
 	public String execute(){
 		String ret = null;
 		try{
+			if(!customerEmail.endsWith("uga.edu")){
+				ret = "failure";
+			}
+			
 			userID = (int)(100000 + Math.random() * 900000);
 			String database = "jdbc:mysql://localhost:3306/dawglist";
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection(database, "root", "");
 			PreparedStatement ps = con.prepareStatement("insert into userDB values(?,?,?,?)");
-			ps.setInt(1, userID);
-			ps.setString(2, customerUsername);
-			ps.setString(3, customerEmail);
-			ps.setString(4, customerPass);
-			ps.executeUpdate();
-			ret = "success";
+			
+			if((customerUsername.equals(""))||(customerEmail.equals(""))||(customerPass.equals(""))){
+				ret = "failure";
+			}
+			else{
+				ps.setInt(1, userID);
+				ps.setString(2, customerUsername);
+				ps.setString(3, customerEmail);
+				ps.setString(4, customerPass);
+				ps.executeUpdate();
+				ret = "success";
+			}
 			
 			
 		} 

@@ -24,9 +24,12 @@ public class PurchaseItemAction {
 			ps.setInt(1, itemID);
 			ResultSet rs =  ps.executeQuery();
 			int sellerID = 0;
-			
+			String itemName = "";
+			int itemPrice = 0;
 			while(rs.next()){
 				sellerID = (rs.getInt(2));
+				itemName = rs.getString(5);
+				itemPrice = rs.getInt(7);
 			}
 			ret = "success";
 			
@@ -37,12 +40,14 @@ public class PurchaseItemAction {
 			//generate orderID
 			int orderID = (int)(100000 + Math.random() * 900000);
 			
-			ps = con.prepareStatement("insert into receiptdb values(?,?,?,?,?)");
+			ps = con.prepareStatement("insert into receiptdb values(?,?,?,?,?,?,?)");
 			ps.setInt(1, orderID);
 			ps.setString(2, currentTime);   
 			ps.setInt(3, itemID);   
 			ps.setInt(4, currentID);   
-			ps.setInt(5, sellerID);  
+			ps.setInt(5, sellerID); 
+			ps.setString(6, itemName);  
+			ps.setInt(7, itemPrice);  
 			ps.executeUpdate();
 			
 			/*

@@ -1,8 +1,8 @@
 package edu.uga.cs4370.dawglist;
 
 public class ReceiptTableItem {
-	private String orderTime;
-	private int orderID, customerID, sellerID, itemID;
+	private String orderTime, itemName;
+	private int orderID, customerID, sellerID, itemID, itemPrice;
 	
 	public int getOrderID(){
 		return orderID;
@@ -37,6 +37,20 @@ public class ReceiptTableItem {
 	}
 	public void setOrderTime(String orderTime){
 		this.orderTime = orderTime;
+	}
+	
+	public int getItemPrice(){
+		return itemPrice;
+	}
+	public void setItemPrice(int itemPrice){
+		this.itemPrice = itemPrice;
+	}
+	
+	public String getItemName(){
+		return itemName;
+	}
+	public void setItemName(String itemName){
+		this.itemName = itemName;
 	}
 
 }

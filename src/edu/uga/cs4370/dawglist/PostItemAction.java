@@ -16,17 +16,23 @@ public class PostItemAction {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection(database, "root", "");
 			PreparedStatement ps = con.prepareStatement("insert into itemdb values(?,?,?,?,?,?,?,?,?)");
-			ps.setInt(1, itemID);
-			ps.setInt(2, sellerID);
-			ps.setString(3, sellerName);
-			ps.setString(4, sellerEmail);
-			ps.setString(5, itemName);
-			ps.setString(6, category);
-			ps.setInt(7, price);
-			ps.setString(8, itemCondition);
-			ps.setString(9, description);
-			ps.executeUpdate();
-			ret = "success";
+			if((price<0)||(sellerName.equals(""))||(itemName.equals(""))||(category.equals(""))||(itemCondition.equals(""))){
+
+				ret="failure";
+			}
+			else{
+				ps.setInt(1, itemID);
+				ps.setInt(2, sellerID);
+				ps.setString(3, sellerName);
+				ps.setString(4, sellerEmail);
+				ps.setString(5, itemName);
+				ps.setString(6, category);
+				ps.setInt(7, price);
+				ps.setString(8, itemCondition);
+				ps.setString(9, description);
+				ps.executeUpdate();
+				ret = "success";
+			}
 			
 		} 
 		catch (SQLException | ClassNotFoundException e) {

@@ -1,15 +1,17 @@
 package edu.uga.cs4370.dawglist;
 
 import java.sql.*;
-import java.util.Map;
+import java.util.ArrayList;
 
 import com.opensymphony.xwork2.ActionContext;
 
 public class LoginAction {
 	private String customerUsername, customerPass;
 	private int userID;
+	ArrayList<TableItem> list = new ArrayList<TableItem>();
+	
 	public String execute(){
-		String ret = null;
+		String ret = "failure";
 		try{
 			
 			
@@ -26,6 +28,26 @@ public class LoginAction {
 				CurrentUserInfo.currentEmail = (rs.getString(3));
 				ret = "success";
 			}
+			else{///*************/made changes here/***************//
+				ret="failure";
+			}
+			//Show homepage stuff
+			ps = con.prepareStatement("select * from itemdb");
+			rs =  ps.executeQuery();
+			while(rs.next()){
+				TableItem item = new TableItem();
+				item.setItemID(rs.getInt(1));
+				item.setSellerID(rs.getInt(2));
+				item.setSellerName(rs.getString(3));
+				item.setSellerEmail(rs.getString(4));
+				item.setItemName(rs.getString(5));
+				item.setCategory(rs.getString(6));
+				item.setPrice(rs.getInt(7));
+				item.setItemCondition(rs.getString(8));
+				item.setDescription(rs.getString(9));
+				list.add(item);
+			}
+			con.close();
 			
 		} 
 		catch (SQLException | ClassNotFoundException e) {
@@ -56,5 +78,13 @@ public class LoginAction {
 	
 	public void setCustomerPass(String customerPass){
 		this.customerPass = customerPass;
+	}
+	
+	public ArrayList<TableItem> getList(){
+		return list;
+	}
+	
+	public void setList(ArrayList<TableItem> list){
+		this.list = list;
 	}
 }

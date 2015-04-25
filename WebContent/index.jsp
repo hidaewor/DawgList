@@ -6,19 +6,43 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Login</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/form-style.css">
 </head>
 <body>
-<form action="login">
-      <label for="customerEmail">Username:</label>
-      <input type="text" name="customerUsername"/><br>
-      <label for="customerPass">Password:</label>
-      <input type="password" name="customerPass"/>
-      <input type="submit" value="Login"/>
-   </form>
-   
-  <!--<a href="<s:url action='goToRegister'/>">Register</a> -->
-  <a href = "registerPage.jsp">Register</a>
-   
+<!-- Start Page Content -->
+<div class="content">
+	<div class="container">
+		<div class="main">
+		
+			<!-- Begin LOGIN FORM -->
+			<h3>DawgList Login</h3>
+			<!--<a href="<s:url action='goToRegister'/>">Register</a> -->
+			<p align="center">Not yet registered? <a href = "registerPage.jsp">Click Here.</a></p>
+			
+			<form action="login" class="basic-grey">
+			      <!-- i dont think this is needed: <label for="customerEmail"> -->
+			      <label>
+				      <span>Username:</span>
+				      <input type="text" name="customerUsername"/>
+			      </label>
+			      <label>
+				      <span>Password:</span>
+				      <input type="password" name="customerPass"/>
+			      </label>
+			      <label>
+			      	  <span>&nbsp;</span> 
+			      	  <input type="submit" class="button" value="Login"/>
+			      </label>
+			</form>
+   			<!-- End LOGIN FORM -->
+   			<span>&nbsp;</span> 
+			<p align="center"><img src="imgs/georgia.gif"></p>
+			
+		</div>
+	</div>
+</div>
+<!-- End Page Content -->	  
 </body>
 </html>

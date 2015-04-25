@@ -27,6 +27,8 @@ public class ViewReceiptAction {
 				item.setItemID(rs.getInt(3));
 				item.setCustomerID(rs.getInt(4));
 				item.setSellerID(rs.getInt(5));
+				item.setItemName(rs.getString(6));
+				item.setItemPrice(rs.getInt(7));
 				receiptList.add(item);
 			}
 			ret = "success";
